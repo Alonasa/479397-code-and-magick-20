@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="RU-ru">
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Mono&subset=latin,cyrillic">
@@ -63,7 +63,7 @@
   <div class="demo"></div>
 
   <div class="setup-open">
-    <img src="./img/user-1.jpg" class="setup-open-icon">
+    <img src="./img/user-1.jpg" class="setup-open-icon" alt="wtf">
   </div>
 </header>
 
@@ -76,7 +76,7 @@
     <div class="setup-title">
       <div class="setup-user">
         <div class="upload">
-          <img class="setup-user-pic" src="./img/user-1.jpg"/>
+          <img class="setup-user-pic" src="./img/user-1.jpg" alt="stop please!"/>
           <input type="file" name="avatar">
         </div>
         <label>
@@ -180,7 +180,36 @@
     <p class="setup-similar-label">Петр Петров</p>
   </div>
 </template>
+<script>
+  var fireballSize = 22;
+  var wizardWidth = 70;
+  var wizardSpeed = 5;
 
+
+   function getFireballSpeed (isHeadWind) {
+    if (!isHeadWind) {
+      return 5;
+    };
+
+    return 2;
+   };
+
+
+   function getWizardHeight () {
+     return 1.337 * wizardWidth;
+   };
+
+
+   function getWizardX (gameFieldWidth) {
+     return (gameFieldWidth - wizardWidth) / 2;
+   };
+
+
+   function getWizardY (gameFieldHeight) {
+     return gameFieldHeight / 3;
+   };
+
+</script>
 <script src="js/game.js"></script>
 
 </body>
