@@ -185,9 +185,10 @@
   var wizardWidth = 70;
   var wizardSpeed = 3;
 
-  var HEIGHT_CONSTANT = 1.337;
+  var WIZARD_HEIGHT_RATIO = 1.337;
   var FIREBALL_SPEED_FAST = 5;
   var FIREBALL_SPEED_SLOW = 2;
+  var WIZARD_POSITION_Y_RATIO = 1/3;
 
 
    function getFireballSpeed (isHeadWind) {
@@ -196,7 +197,7 @@
 
 
    function getWizardHeight () {
-     return HEIGHT_CONSTANT * wizardWidth;
+     return WIZARD_HEIGHT_RATIO * wizardWidth;
    };
 
 
@@ -204,20 +205,8 @@
      return (gameFieldWidth - wizardWidth) / 2;
    };
 
-  //начальное положение мага по вертикали: фигурка находится на высоте две трети игрового поля от земли.
-  /*Если эта фигурка находится на 2/3 игрового поля от земли то ничего не работает,
-    при gameFieldHeight/3*2 фигура находится почти на земле, так что я вообще не могу понять что тут требуется.
-    Но факт остается фактом, при делении на 3 он как раз на своем месте.
-    в game.js:20 есть вычисление которое от высоты отнимает 100,
-    что и портит всю логику задания. Не исключаю что я не достаточно умна, но тут 2 решения, либо удалять game.js:20
-    что может поломать весь код, либо же то решение что ниже, но опять таки смысл действий мне никак не понятен.
-    Маг возвращается на свое место равносильное /3
-
-    Высота поля у нас 300, расчет идет сверху вниз, 300 как раз находится по линии горизонта
-  */
-
    function getWizardY (gameFieldHeight) {
-     return gameFieldHeight / 3 * 2 - 100;
+     return gameFieldHeight * WIZARD_POSITION_Y_RATIO;
    };
 
 </script>
