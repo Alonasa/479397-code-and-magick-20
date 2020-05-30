@@ -185,18 +185,18 @@
   var wizardWidth = 70;
   var wizardSpeed = 3;
 
+  var HEIGHT_CONSTANT = 1.337;
+  var FIREBALL_SPEED_FAST = 5;
+  var FIREBALL_SPEED_SLOW = 2;
+
 
    function getFireballSpeed (isHeadWind) {
-    if (!isHeadWind) {
-      return 5;
+      return (isHeadWind ? FIREBALL_SPEED_SLOW : FIREBALL_SPEED_FAST);
     };
-
-    return 2;
-   };
 
 
    function getWizardHeight () {
-     return 1.337 * wizardWidth;
+     return HEIGHT_CONSTANT * wizardWidth;
    };
 
 
